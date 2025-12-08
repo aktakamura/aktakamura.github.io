@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap");
+
+/* === Variáveis de Cores === */
+:root {
+  --verde-vibrante: #bce784;
+  --vermelho-energia: #fe5f55;
+  --azul-base: #81adc8;
+  --mostarda: #c8963e;
+  --marrom-escuro: #573d1c;
+  --texto-claro: #ffffff;
+  --fundo-pagina: #f9f6f1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,32 +18,40 @@
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: #f9f6f1;
-  color: #222;
+  font-family: "Roboto", sans-serif;
+  background: var(--fundo-pagina);
+  color: var(--marrom-escuro);
   line-height: 1.6;
 }
 
+/* === Cabeçalho === */
 header {
-  background: #c62828;
-  color: #fff;
+  background: var(--azul-base);
+  color: var(--marrom-escuro);
   text-align: center;
   padding: 5rem 1rem;
 }
 
 header h1 {
+  font-family: "Montserrat", sans-serif;
   font-size: 3rem;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
+  color: var(--texto-claro);
+  background-color: var(--mostarda);
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
 }
 
+/* === Botão === */
 .btn {
-  background: #fff;
-  color: #c62828;
+  background: var(--vermelho-energia);
+  color: var(--texto-claro);
   padding: 0.8rem 2rem;
   text-decoration: none;
   font-weight: bold;
@@ -39,15 +60,18 @@ header h1 {
 }
 
 .btn:hover {
-  background: #ffeaea;
+  background: var(--verde-vibrante);
+  color: var(--marrom-escuro);
 }
 
+/* === Conteúdo principal === */
 main {
   padding: 3rem 1rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
+/* === Rodapé === */
 footer {
   text-align: center;
   padding: 2rem 1rem;
