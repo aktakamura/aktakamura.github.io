@@ -1,40 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <title>laboratório</title>
     <link rel="stylesheet" href="style.css" />
     <style>
+      /* =========================
+         Base
+      ========================== */
       body {
         margin: 0;
         padding: 0;
         background: #0f0f0f;
         color: #eaeaea;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
           sans-serif;
         line-height: 1.7;
       }
 
-      .container {
+      ``` .container {
         max-width: 700px;
         margin: 0 auto;
-        padding: 32px 20px 48px;
+        padding: 32px 20px 64px;
       }
 
-      .top {
-        font-size: 0.85rem;
-        opacity: 0.6;
-        margin-bottom: 48px;
-      }
-
-      .top a {
+      a {
         color: #9fa8ff;
         text-decoration: none;
-        margin-right: 12px;
       }
 
-      .top a:hover {
-        opacity: 1;
+      a:hover {
+        opacity: 0.85;
       }
 
       h1 {
@@ -50,7 +51,7 @@
       }
 
       .small {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         opacity: 0.6;
       }
 
@@ -60,80 +61,173 @@
         margin: 48px 0;
       }
 
-      .thought {
-        margin-top: 48px;
+      /* =========================
+     Top nav
+  ========================== */
+      .top-nav {
+        margin-bottom: 48px;
       }
 
-      .thought-date {
-        font-size: 0.8rem;
-        opacity: 0.5;
-        margin-bottom: 16px;
+      /* =========================
+     Manifesto
+  ========================== */
+      #lab-manifesto {
+        margin-bottom: 64px;
       }
 
-      .thought-emphasis {
-        font-style: italic;
-        opacity: 1;
+      .manifesto p {
+        max-width: 640px;
+      }
+
+      /* =========================
+     Code component (Nível 2)
+  ========================== */
+      .code-container {
+        background: #020617;
+        border-radius: 14px;
+        overflow: hidden;
+        margin: 40px 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      }
+
+      .code-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #020617;
+        color: #94a3b8;
+        font-size: 0.7rem;
+        padding: 8px 14px;
+        border-bottom: 1px solid #1e293b;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .code-header button {
+        background: none;
+        border: none;
+        color: #38bdf8;
+        font-size: 0.7rem;
+        cursor: pointer;
+        padding: 4px 6px;
+      }
+
+      .code-header button:hover {
+        opacity: 0.8;
+      }
+
+      .code-container pre {
+        margin: 0;
+        padding: 18px 20px 20px;
+        overflow-x: auto;
+      }
+
+      .code-container code {
+        font-family: "JetBrains Mono", Consolas, monospace;
+        font-size: 0.85rem;
+        color: #e5e7eb;
+        line-height: 1.6;
+        white-space: pre;
       }
     </style>
+    ```
   </head>
   <body>
     <div class="container">
-      <p class="small">
+      <p class="small top-nav">
         <a href="pensamentos.html">pensamentos</a> ·
         <a href="exploracoes.html">explorações</a> ·
         <a href="laboratorio.html">laboratório</a>
       </p>
-    
-    <div class="divider"></div>
+
+      ```
+      <div class="divider"></div>
 
       <h1>laboratório</h1>
 
-    <div class="divider"></div>
+      <div class="divider"></div>
 
-    <section id="lab-manifesto">
+      <section id="lab-manifesto">
+        <section class="manifesto lang-pt">
+          <p>
+            Este espaço não existe para mostrar o que eu já sei.<br />
+            Existe para registrar o que ainda estou aprendendo.
+          </p>
 
-      <section class="manifesto lang-pt">
+          <p>
+            O código é apenas uma ferramenta, <em>não o fim</em>.<br />
+            Errando e refazendo, guiado pela curiosidade.
+          </p>
 
-        <p>
-          Este espaço não existe para mostrar o que eu já sei.<br />
-          Existe para registrar o que ainda estou aprendendo.
+          <p>
+            Aqui é um laboratório para experimentos:<br />
+            pequenos scripts, ideias inacabadas,<br />
+            tentativas humanas e honestas.
+          </p>
+
+          <p>
+            Algumas coisas vão ficar legais e redondas,<br />
+            outras nem tanto.<br />
+            <strong>E tudo bem, de verdade.</strong>
+          </p>
+
+          <p>
+            Talvez um dia isso vire portfólio.<br />
+            Talvez não.
+          </p>
+
+          <p>
+            Uma coisa é certa: é um caminho de alguém que, perto dos 40,<br />
+            continua aprendendo a programar —<br />
+            não automaticamente, não maquinalmente,<br />
+            mas pensando, criando e refletindo sobre a vida.
+          </p>
+        </section>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- =========================
+       Exemplo de função M
+  ========================== -->
+      <section class="lab-entry">
+        <p class="small">Função · Power Query (M)</p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span>fnNormalizeText</span>
+            <button onclick="copyCode(this)">Copiar</button>
+          </div>
+          <pre><code>
+      fnNormalizeText
+      // Normalize a text: remove accents, trim spaces and lowercase
+      (text as text) as text =>
+      let
+      trimmed = Text.Trim(text),
+      lower = Text.Lower(trimmed),
+      noAccent = Text.RemoveDiacritics(lower)
+      in
+      noAccent </code></pre>
+        </div>
+        <p class="small">
+          Função utilitária para normalização de textos antes de joins,
+          comparações ou remoção de duplicidades.
         </p>
-
-        <p>
-          O código é apenas uma ferramenta, <em>não o fim</em>.<br />
-          Errando e refazendo, guiado pela curiosidade.
-        </p>
-
-        <p>
-          Aqui é um laboratório para experimentos:<br />
-          pequenos scripts, ideias inacabadas,<br />
-          tentativas humanas e honestas.
-        </p>
-
-        <p>
-          Algumas coisas vão ficar legais e redondas,<br />
-          outras nem tanto.<br />
-          <strong>E tudo bem, de verdade.</strong>
-        </p>
-
-        <p>
-          Talvez um dia isso vire portfólio.<br />
-          Talvez não.
-        </p>
-
-        <p>
-          Uma coisa é certa: é um caminho de alguém que, perto dos 40,<br />
-          continua aprendendo a programar —<br />
-          não automaticamente, não maquinalmente,<br />
-          mas pensando, criando e refletindo sobre a vida.
-        </p>
-      </section> 
+      </section>
 
       <div class="divider"></div>
 
       <p class="small">Ainda em construção. Como eu.</p>
     </div>
 
-
+    <script>
+      function copyCode(button) {
+        const code = button.parentElement.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code);
+        button.innerText = "Copiado";
+        setTimeout(() => (button.innerText = "Copiar"), 1400);
+      }
+    </script>
+    ```
   </body>
 </html>

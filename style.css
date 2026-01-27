@@ -62,3 +62,57 @@ a:hover {
   font-style: italic;
   opacity: 0.95;
 }
+
+/* =========================
+   LABORATÓRIO – CODE BLOCK
+========================= */
+
+.code-container {
+  background: #020617;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 40px 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #020617;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  padding: 8px 14px;
+  border-bottom: 1px solid #1e293b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.code-header button {
+  background: none;
+  border: none;
+  color: #38bdf8;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.code-header button:hover {
+  opacity: 0.8;
+}
+
+.code-container pre {
+  margin: 0;
+  padding: 18px 20px 20px;
+  overflow-x: auto;
+}
+
+.code-container code {
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+  white-space: pre;
+}
+/* =========================
+   END OF CODE BLOCK STYLES
