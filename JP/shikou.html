@@ -90,6 +90,10 @@
       button:hover {
         border-color: #9fa8ff;
       }
+
+      .hide-furigana rt {
+        display: none;
+      }
     </style>
   </head>
 
@@ -373,17 +377,13 @@
 
     <script>
       const button = document.getElementById("toggleFurigana");
-      let visible = true;
+      const text = document.getElementById("texto-japones");
 
       button.addEventListener("click", () => {
-        const rts = document.querySelectorAll("rt");
+        text.classList.toggle("hide-furigana");
 
-        rts.forEach((rt) => {
-          rt.style.display = visible ? "none" : "inline";
-        });
-
-        visible = !visible;
-        button.textContent = visible ? "ふりがなを消す" : "ふりがなを表示";
+        const hidden = text.classList.contains("hide-furigana");
+        button.textContent = hidden ? "ふりがなを表示" : "ふりがなを消す";
       });
     </script>
   </body>
