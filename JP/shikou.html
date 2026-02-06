@@ -133,7 +133,7 @@
       </p>
 
       <div class="divider"></div>
-      <div class="thought">
+      <div class="thought texto-japones">
         <div class="thought-date">2026年2月5日 — 自由</div>
 
         <p>
@@ -377,12 +377,12 @@
 
     <script>
       const button = document.getElementById("toggleFurigana");
-      const text = document.getElementById("texto-japones");
+      const texts = document.querySelectorAll(".texto-japones");
 
       button.addEventListener("click", () => {
-        text.classList.toggle("hide-furigana");
+        texts.forEach((t) => t.classList.toggle("hide-furigana"));
 
-        const hidden = text.classList.contains("hide-furigana");
+        const hidden = texts[0].classList.contains("hide-furigana");
         button.textContent = hidden ? "ふりがなを表示" : "ふりがなを消す";
       });
     </script>
